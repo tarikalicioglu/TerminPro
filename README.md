@@ -1,4 +1,4 @@
-# ✂️ TerminBuch · Profesyonel Esnaf Randevu ve Kasa Defteri
+# ✂️ TerminPro · Profesyonel Esnaf Randevu ve Kasa Defteri
 
 Kuaförler, berberler ve mobil esnaf için özel olarak geliştirilmiş; **%100 internetsiz (offline) çalışabilen**, çok dilli (TR / DE / EN) ve sesli komut destekli modern bir Web Uygulamasıdır (PWA). Herhangi bir bulut/sunucu maliyeti veya kısıtlaması olmadan tamamen kendi cihazınızda güvenle çalışır.
 
