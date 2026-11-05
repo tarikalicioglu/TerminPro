@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TerminBuch">
+<meta name="theme-color" content="#0f172a">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22TerminBuch%20%C2%B7%20Randevu%20Defterim%22%2C%20%22short_name%22%3A%20%22TerminBuch%22%2C%20%22start_url%22%3A%20%22.%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22background_color%22%3A%20%22%230f172a%22%2C%20%22theme_color%22%3A%20%22%230f172a%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAAq0UlEQVR4nO3deZQeVZ3/8XtvLc/WS3pLIlkNe1hcEpgRAoKOuwRFdBQVBRdmiDrH2RzHceYcddSfZ874c1g8KoKiuBsRR50Z9OfCKhDWBMgImIVFSKe7093PVlX33t8flTQxhtBP97Pf9%2BswczgcSJddt%2B6n6tb91lf2L1otAADuUa0%2BAABAaxAAAOAoAgAAHEUAAICjCAAAcBQBAACOIgAAwFEEAAA4igAAAEcRAADgKAIAABxFAACAowgAAHAUAQAAjiIAAMBRBAAAOIoAAABHEQAA4CgCAAAcRQAAgKMIAABwFAEAAI4iAADAUQQAADiKAAAARxEAAOAoAgAAHEUAAICjCAAAcBQBAACOIgAAwFEEAAA4igAAAEcRAADgKAIAABxFAACAowgAAHAUAQAAjiIAAMBRBAAAOIoAAABHEQAA4CgCAAAcRQAAgKMIAABwFAEAAI4iAADAUQQAADiKAAAARxEAAOAoAgAAHEUAAICjCAAAcBQBAACOIgAAwFEEAAA4igAAAEcRAADgKAIAABxFAACAowgAAHAUAQAAjiIAAMBRBAAAOIoAAABHEQAA4CgCAAAcRQAAgKMIAABwFAEAAI4iAADAUQQAADiKAAAARxEAAOAoAgAAHEUAAICjCAAAcBQBAACO8lt9AGg9KaWUUghhrbXWtvpw0ECca%2ByPAHBXOhcYY6IoMloLIaSSQRB6nieEMMa0%2BgBRN5xrHBQB4CilVLVaTeI4l88vXbasp7dPCFutVn//%2BOPT09NSymw2K4TgJrELcK7xTAgA50gprbWlYnHZihXrXnzmylWrhkdGwkxGWKF1MjY29vijj9564w33b77P8/0gCLg97Fycaxya7F%2B0utXHgOaRUiZJIoU46/VvWHfGGZlsNo7jJI6tNUJIIYTv%2B0EYGmO23Hvvd6752sTERDabZV7oRJxrPCsCwCHpjJDL5d71FxcfdeyxpWLRaC2VSt8KpmbeDeYLhfGxsS9//vLtv3skm8sxL3QWzjVmg22grkhXA6QQ6YwwNTkphFCet/%2BMkP5rSimlVHF6uq%2B//6L3f2Bk0aJqtaoUQ6VjcK4xS5xpV0gpK%2BXyWa9/QzojpNs/DsHzvEq53NPbe9757/R93xhzwPSBtsW5xiwRAE6QUlar1WUrVqw744xSsTjLWzzP80rF4tGrV689%2BU/KpRKTQkfgXGP2CAAnpCvC6158Ziabren%2BTkoZVavrzjgzx9Jwh%2BBcY/YIACcYY3K53MpVq%2BI4ruk/VErFcbxw0aLhhQvjOGZ1uP1xrjF7nOPul17YixYvHh4ZSWq/sGcmlKTGCQXNx7lGTQgAJxite/v6MpnM3Ko9pVIDA4NUinYEzjVmjwBwhTFmPle11rqOB4OG4lxjlggAzArbQtzBuXYHAQAAjiIAAMBRBAAAOIoAAABHEQAA4CgCAAAcRQAAgKMIAABwFAEAAI4iAADAUQQAADiKAAAARxEAAOAoAgAAHEUAAICjCAAAcBQBAACOIgAAwFEEAAA4igAAAEcRAADgKAIAABxFAACAowgAAHAUAQAAjiIAAMBRfqsPAIcg0/8n07%2BZ858ilZSekPMLeyml9KRUcl7HgsZqp3MtrTDCpn9v53U8aBgCoM1ItXfCt9ZabY0WQpikOp8/0iqlq0UTl%2BZzWDapJtU9OrTGmPkcDBqqrc619EIhlZRSKF9KKYSw1grL%2BGkjBEB7kEpKaa0xcdnqWFgtla8yvX6uX0iZHTxcKE/YOd5GKaWCSjW/eKm1RszlYUJaE2cGVvYf8WeFfI4AaGftc66lVNWJ7SYqWpMk5TFrEiGEVIEKslL5wgprDU8GLUcAtFQ67xttommrExVkc8NHZYYOz40cmx0%2BKuxbEhSGrRVBYVjM42lcChsZeVhuzCa3CunXfNVJZapTA6tff%2BRhf5vzrLGsAbWvtjrXSXncmthEpWhiR2X8kfJTD1R3P1Qe3ZqUx4VUKsgrLxDWWp4JWocAaA0plRBSxyWbVLxsf8%2Byk/tWvbSwZG1u4TFemBdKCCOsMel90/ye6IUU1hjf%2BpX5/BlWRyaKjBcRAO2src61CvJSSpEbzAyu7FOnCytMEld2P1T6/X2TD/%2B8%2BNgd8fRTUnoq0yOlSlc70WQEQLNJ6VlhdXXaWp1ffOLA6vW9K0/LDh2pAt9qYeJKUp0Wdt%2B73/TGf57v9IQVUs3nGSI9biGVkGpOCwtomnY611ZbK4QVJqmmC5hSqdzw0flFxw6d%2BKZoYsf0ztvGH/zPqW03WB17mR6pfGKgyQiAJpJSSqUrk0KqvlVnDD3/LT3LT/HzPTY2Jq4kcUVKKfbu4mj1oQJ1sN82tn1D2sRlG1kpZdBz2NDzzh087pziY5vGtnx//IEfJeVxL9ufPsa08KCdQgA0iVSeSao6KvatOnPhye/tXblOKqmrlaQ4JaXaO%2B8DXW/f7lKro6RUkVIWlp7Us/yk4Re%2BY9emr4xv/r61xsv0WMMr4mYgABpPSiFkUhrPDKxY/LKPDx5/jlC%2BqRattVJ5UnEK4CQp05seExWttbnho1e85v8Mrl7/xA3/Pr3zN16mV6rAWlaEGovZp7HSG3%2BbRCMnvXvxiy4Oekd0uWRFRUqPiipAiL3PBCYu28j0rDj1iCVrdt/z7Sdu/HddnfQyfek%2BCDQIn4JoIKk8XZn0wp6VZ1%2B67OX/4mX6k9LUzI0PgKdJJZWvK9PW2JGT33HEm6/JLTwuKe2W0mPfQeMQAI0ilZeUJwpLTzryrd8dOPY1SWnK6oQFH%2BAQpPKEEElxKrfwuCPf8q3h578tqUwIIea7rwnPgABoBCmVnxR3Dz//bUe8%2BRvhghVJeUoqn0EMzIZUvq4WhfKXv%2BbTy17xSRMVhbXz3gyNg%2BB3WndSSBEXnxpe885lr/ykNdrEFW78gZpI5QljktL0wrVvW/bKT5moaHVMBtQdE1O9SWni8rKXfWJk7YUmKgtrJaMWmAMppfTi0vTw898c9h62/cd/raNp5QV8OqKOmJvqSSovKY6OrLlg0SnvMlFJCMuyDzAfUnpJear/6NOXvuxjJi7N9SN3ODgCoG7St74jay9ccuaH4%2BnpdPt/qw8K6HhS%2BfHU1MCxr17%2Bqs%2BYuMxVVUcEQH1I5Sfl8YFj1y9/5b%2BauCL5Zg5QP1L5SXl6ZM2bl5z5EV2e4KVavRAAdSClMlExO3Tk0pd93MRVay2zP1BfUnlxcXrkpAsHVr8uKY%2BRAXVBAMyftNYI5S1/1Wf8/IDRMW99gUaQQtkkWvqyj2eHjtRRkQtt/vgNzpdUSlenDjv9Qz3L1%2BrKNFW%2BQKNIaXTs5weWv%2BozbAeqCwJgXqT0dGWyd%2BVpI2sv0OViWscIoEGk9HRlqmfF2pGT3s3LgPkjAObFWi39zHNO%2BzshDN%2BuBZpAKk9XKgvXviu78BjDQtD88LubO6k8XZ0aft55Pcuer6tlBiLQFNLqxM8vWHzqB63R3HjNB3PWnEmTRGHfYYv%2BdIOJqlK1%2B2/Szm9j0jz/czRT159rqTxdKQ4c%2B9reVaeb6hT3XnPGL26OpFImmh563luCvmGTxO2879MK6UmzJyoUdcaTNb83k1IkVu0q9ylhLLdb7c2dc22FEMIuXPtuIVV7H2lbIwDmRpokCvuXDZ34FhNF7X/770lT1Jk9ccGTptb7O0%2Baig7Ho545/LdoPkfOtZTKVEu9K0/tXXmaqU7zEDA3/NbmQiplomLf4S8J%2BxeaJGrn2/8ZxsptU4uksDXd2RkrfakfLQ0XdXYOd5RoCUfOtbVWKjV43Ous1Xx0a24IgLmwRnvZ3uHnnWeTzhh5VshQJQ9PLd4d9Yaenv3NnZI2Nt6WieWSPdcdwp1zLZWnq5X%2BI16eW7jaRGXZCfdh7YYAqJmUysSl/OITswuPMXG1U549pbCJ9W556hhrhRR2NvOCsSrrRZvGjthd7Q1UDVMJWsudc21N4uUKfYefaZKyaPuV2DbEr6x2Ulod9616ifK9DqpFtEIGMnmiPHDzrmNClShpjH3Gi9wKaYUs%2BJUtE8u3TCwPVdIpMwKEU%2BdaSqtN36ozVZDroIuxfRAANTNGe7kFvc893SS6s246rJAZFT%2B4Z%2BnPf39iYrycHwkhrJXpFLD3LyutEKFKAqlvGz3yll3H%2BFK3%2BsBRM0fOtZTKxNX8ohOyw0fZuNIRb%2BPaCoXUtUk//Jk/7IXZoSNtUu24ZUcrZMaLH5laPF7tOWFg%2B8qeJzNeLJ7e%2Bm2lENqqx0pD942veLQ0FKqktQeMOXPkXFuj/XxPz/IXlZ64xw/z1nRYhrUWAVAjKa2JC8tOVr6XxKYTP/5jrcx68WSc//WTx22ZWD6SnVyUHc/7VSFkbLwnKwt2Vfp2VfqNlRkVd9JqAP6IE%2BdaSmtsz7I/2XXHlbVtewIBUCtrrVR%2B77I/sVZ0xP6fgzJW%2BtL4Uk9Ehd3V3q17lkhphRDWCiukEjZQWshZvTxEm%2Bv6cy2ltEmSX3RiUBhOKlNSeXurxDALBEBNpDXay/aH/cutTmTHBoDYe4lIXxpf6aevl7SLpU1XCTr4fx321%2B3nWloT%2B/mBoG9pXLxbeQWeA2avk95htpwU0uoo7Fsa9C62uq0//zBL9uAvBjv%2Bfxf%2BWBefa2uMCsLcyNHWxJ37XN4SBEAtpBAmDnqfo8KcYM8Z0D6kCBesENz714gAqIWU1ujcwmOlqrHKHkDjSGmNyI0cI72QC7MmBECtuuOhGeg2Ukqey2tFANTCWqn8sG9pR28BArqMFEIY7RdGVKZXWNMFL%2BeahgCogRVCSC/Tv4xtZkAbkdIaHfQs8jK9FILVhAComTVxqw8BwIGsSVgCqhUBMAc8YAJtiAuzZgQAADiKAAAARxEAAOAoAgAAHEUAAICjCAAAcBQBAACOIgAAwFEEAAA4igAAAEcRAADgKAIAABxFAACAowgAAHAUAQAAjiIAAMBRBAAAOIoAAABHEQAA4CgCAAAcRQAAgKMIAABwFAEAAI4iAADAUQQAADiKAAAARxEAAOAoAgAAHEUAAICjCAAAcBQBAACOIgAAwFEEAAA4igAAAEcRAADgKAIAABxFAACAowgAAHAUAQAAjiIAAMBRBAAAOIoAAABHEQAA4CgCAAAcRQAAgKMIAABwFAEAAI4iAADAUX6rD6DzSCGk3PtXM1hhm/JzgPqSe/%2BvKT9LNu1HdRUCoGbaiEQLrZsVAEL4HoMbnScxwpom/SxpRdKsn9VNCIDaWCEKWbEgLxKvGQEghTBWjE0LY4WUPAqgM0ghrBUL8iL0mzRopRKxaN49WdcgAGqgpCjH4h/P8l98mihXAs/zGv4jpdBGbB812vAQgE5irFg2KPMZaWzDh661Ngj8sbHgxV%2BTY9M28ITlXml2CIDapE8AvVkRKtGE%2BV8IIYVY2Me7enQeY4RpykRsrQh8keR4AqgZAVAzbYS1ItHNW5CJdLN%2BElA/e18CN/46sVZIxTuAuSAAatbsXUDN20kBNEBThi%2B7gOaGtQUAcBQBAACOIgAAwFEEAAA4igAAAEcRAADgKAIAABxFAACAowgAAHAUAQAAjiIAAIdoa%2BgwhBkEAOCQfBD40tN8LhlCCAIAcIEVwgrrS/Xph375ZHUqH/hJ05p1oY0RAED309ZkA/%2Bjv73%2Bww9c94a7r7l38veFIIgNGeA6AgDoctqaQhhcuWPTv2379Uh%2B6M7Jx15x%2B5V3TDzWkwl4DnAcAQB0s8SafBBctePO927eWPDCxOh%2BP7snqZy16asbn9hSCILENqdtF9oRAQB0rcSaQhjcOr5zw/3X9vihEtKmkeCFRR298a5rrty5qRAG1vJS2FEEANCdEmsKfnDH%2BGPn3Pl1TypPKrNvA6i2JlBen5%2B9eMu1//rbX%2BR8XwhhSAH3EABAF0pn/0dKY%2Bs3fXUiKWeUf8D8bqyVQhb88J%2B2/vR9W67L%2Bp6vFBngGgIA6DbG2pznj8Xl8%2B/97mhcKnihPtjLXiustXYk03fZjlvee98PKjYOPHXQfxPdigAAuoqx1lNyIqmcvenqWya29/vZQ2z1sULE1gyHhS/t/M2rb//qZFLN%2B2wNcggBAHQPK6yUIvS8999/3Y1jvxsOC7OZzRNrRjK9N01sW7/p6odKYwUywBkEANAlrBDGioznv2/zdd984p7hTE9k9Cz/29jooSB/256dp9/6hTv2PFYIyQAnEABAl9DW5EP/H7b%2B92XbbxoK8rXO4Ik1/X52Iimv33T1zbt3pCUCDTpUtAkCAOgGM%2BW%2Bn912w2CmZ27vctMSgSldfdntX75q56ZCGGjKxLoaAQB0vAPKfe08vvisrQmVFyj13s0/%2BNL22/NBYMV8/jy0NQIA6GwHK/ed13xtrPWE6vXDi7b84ANbfpTzfSkkJQJdiQAAOtghyn3nI/1DBoP8Jdtuunjzdb6SWc/nOaD7EABAp3rWct/5sEJoa4YyPV/Y%2BZuX3HbFtvK4JxUZ0GUIAKAjzbLcd56ssH1%2BZvPUk6NxUUnJOlCXIQCAzlNTue%2BcpUv/U0n1ey9460kDS6taKynr/lPQQgQA0GHmVu5bq3Smn9bRF48/58zhVcUo9pj9uw4BAHSS%2BZT71kRJNRGXP7/6dRcuX1OKY18yV3QhTirQSeZZ7jtLnlS7q9PvX3HKu1esLUWxx%2BzfpTivQMeoS7nvs/KlGo9LG1ac8rnjXluOE8Xs3704tUBnqGO57yEEyhuNpl89csylx6%2BvJInc9zIAXYkAADpA3ct9D8qXaiwqrRt47lUnnhtpba2QzP9djQAA2l2Dyn0P4Eu1J6m8oO%2BwH645f9DPaWPZ9Nn1CACgrTW03HeGJ2VRR0NB/soTzh0McmWdMPu7gAAA2ldzyn2VlJHRA0HuR2vecULfomLCpk9XcJqBNtXMct%2BSjq8%2B4U1rB5ZMR8z%2BDuFMA%2B2o%2BeW%2BLx05vBjFgWJOcAgnG2g7lPuiOTjfQNuh3BfNwSkH2gvlvmgazjrQRij3RTMRAEC7oNwXTUYAAG2Bcl80HwEAtB7lvmgJAgBoMcp90SqMAKCVKPdFCzEIgJah3BetxTgAWoNyX7QcQwFoDcp90XKMBqAFKPdFO2BAAM1GuS/aBAEANBXlvmgfBADQPJT7oq0QAECTUO6LdkMAAM1AuS/aEIMDaDjKfdGeGB9AY1Hui7bFEAEaiHJftDNGCdBAlPuinTFQgEah3BdtjrECNATlvmh/BABQf5T7oiMQAHgWVtgGrV10K8p90SkIAByKsdaXXj4IrGjICkb3odwXHYQAwDNKrMn5/pPVqU8/9MuM8pQUjVnH7h6U%2B6Kz%2BK0%2BALSp9E52PC6fd%2B%2B3fr3rwcerU/939WsriVYsMz%2BDA8p9Bxuz6XOm3PcHL3j72oEl01UKvjB3DB0cRGJNIQjunfr9K26/8qbx7Yvzw5dsu%2BFTD/8qH/oN2sne6Sj3RSdi9OBA6ex/x8RjL7/9yrumnhgIchWTDGZ6P/7Qz6/csaknDMiAA1Duiw7FAMIfiM3e2f%2BsTV%2BdTCoL9n22zFqR84KLNm%2B8csemQhiwL2h/lPuiQzGG8LTEmp7M3tl/T1LJe%2BHMXGaFVUL2%2BJmLNm%2B8asemfMBzwF6U%2B6JzMYywl7amEAQ/e%2Bqhs%2B%2B8Op39D5jLzL4MeM/mjT/f9XAhDGLjegZQ7ouORgBAiHQiC4Ordm561R1XTSXVvHfwRR4jrJIy7wXn3/edO8Yfc/x9AOW%2B6HQEAPZOZFfu2PTezRt7/EygPP3MtUvG2lB543H5rE1fvWPisULg6PsAyn3RBQgAp9n9Zv%2BLNm/s8TNKyGetXNXW5r1wT1JJMyDnO5cBlPuiOxAA7rLCWmsPnP1ndxurrSl44XhSPveua56qTueeYcmoK1Hui67BkHKUFVYImfP9Dz3wX3%2Bx5Qc1zf6pxJpeL/NEdfLcu64ZT8pZz3chA%2Bjui27CqHJR%2Bq4y63vvu/%2B6zzz8i14/I2uc/VOJNX1%2B9qaJ7WdvunoiqWS9hqyEtA/KfdFlGFjOMdZaIbK%2Bv2HzdZdtv3kk02vt3LcvJtYMB4U0A8aTsqdUt2YA5b7oPowttxhrfaVyvr9h83WX77h5OOyJrZnnhB1bPRwUbhzf9sa7vuFJoeRcHibaH%2BW%2B6D4ML4cYa7OeP6Wrb73725/feetQ2FOvWSy2eiQs/HLskQ/c/58Z35Oi2z4cTbkvuhKfg3aFFdZTajQunnvXNb/e/fBIpjeu6ywWWzMU5C/fcbMQ4rLj11cSbYXtjpKl9Ot4ablvr59pXLnvrurUaxeuptwXTcMthiusFUqJC%2B77/q9Hf7s42x814B42sWY47Ll8x83v23JdxvNMVzwFUO6LLkYAOEMKYcWHVp2%2BND80rSOvMSVFiTUjYc9l2276h63/nQ87fmMo5b7obgSAK5SQsTanDa38zvPfqq3R1qjG3GMm1gxmej677Yb0w9Gd%2B7Egyn3R9QgAhygpi1H8osFll61%2B3XQSpV/3rPtPsUJYKwpeONM8oBMzgHJfuIDR5hZfqlIcX7D8hV88/pzppGoa8572gOYBHZcBlPvCEQw453hSFaP4wuVrvnD8OSUdyca8bUwfL3r9zLs3b/z6o3d3UPMAyn3hDsaci3yppqP4wuVr/u3o14xVpxtUbWSElVIWvOCv7v9RpzQPoNwXTmHYOcqXqhQl71/5og0rTx2Nphs0AaXNA6ommWke0OYZQLkvnMLIc5QUQklR0frS49ZvWH5K4zJAW5v1gpnmAe2cAZT7wjUMPndJIYWwlSS59Pj1Fy8/ZXdcalgGmJkGMvdNPlnw2zED6O4LBxEATktfAJeT5LLj17/lOc8brU6HymvED0obyOyOSxfe972xuO2aB1DuCzcRAK6TQgorIq0vWb1%2B3eBzd0XFQDYkAxJr%2Bv3sXZOPn73p6j1JJev5h%2Bg83EyU%2B8JZBACEklIbu8DP/nDN%2BacuWDEaF4PGrAUl1gwGuZkGMqHX%2BuYBlPvCZQQAhBBCSVnReiYDxuJyg94HxPsayLxu09cqJvHUs/egbxzKfeE4BiL28qSs6KTfz/5wzfkv6DtsT1JpWAbo4bBww/gjf/3Aj0PPk7I1zQMo9wUYi3iaJ1VFJ4NB7soTzh0K8kUdNWiLemz0cNjzpZ23bdh8Xdb3RdMbyFDuCwgCAAfwpSom8Ql9i3605h39frbUsAxIrBkOC5fvuPl9ezOgIRtvDopyXyDFiMSBfKmKcbx2wZI0Ayo6blzzgOGw57IdN79vy3XZJjaQodwXSDEocRD7Z0BG%2BZHRDdq1sjcDtt10ybZb8qHfhAIxyn2BGYxLHFz6wbi1A0s%2Bt/qsoo6tbUjzACGEtmYw0/O3W3985Y5Njf5gHOW%2BwP4IADyjQKliFL9t6fOvOP6cqaTa0AYy%2Bf0ayDTorpxyX%2BAABAAOxZeqGMUXLF/zhaY0kHnv5o1X7bgz34APxlHuC/wxAgDPwt%2BvgUyxwQ1kevxww/3X3jq%2Bs75NxCj3BQ6KAMCzm8mAD648bazasOYBwqb35ufc%2BfU7xuv24WjKfYFnwhjFrHhSlaLk00e/YsPKU3c1soFMRvkTSblezQMo9wUOgWGKWUkbyFS1vvS49Rc3toHM080DNk08Np/mAZT7AofGSMVszTSQuWxfA5kGfTR0pnnA2%2B/97lhczs2peQDlvsCzYrCiBlJIK0Q10f%2Bx%2BrVnDK5qdPOAh0qj6Yej59BAhnJf4FkxXlEbJaSxVlvx3Rect25g5Wjc2AyYaR6Q9WrYukO5LzAbDFnUTEmpjRnwc2nzgN1xsUHrHsm%2B5gFnb7p6LCnPsnkA5b7ALBEAmAslZUUnaQOZFy1Y0ejmATeO/%2B6Ce783m%2BYBlPsCs0cAYI48qco6GQxyV5/4xuHGNw/4ya4Hn7V5AOW%2BQE0IAMxd2jxgVX7wusY3DxgI8jPNA%2BTB7usp9wVqRQBgXtIMmGkeUNJRg5oH6P2aBwSeOqB5AOW%2BwBwwfDFf%2BzcPGAhyDW0eMBL2Xrbtxk89/Kv9mwdQ7gvMDSMYdTDTPODqE95U0rFpWPOAxOrBTO/HH/r5TPMAyn2BOWMQoz7S5gEvHTn8S/s%2BHN245gE5L5hpHpBYQ7kvMDd%2Bqw8A3cOXqhTHFyxfY4W4aPPGHj9z0Le18zTTPOCizRuNNe9ecdLf3f/Ty7bfNJzpbWi57wdWrqPcF12GAEA9efs%2BHC2EuHjLtQU/fJZ9%2B3OSPl7kvfBvtv7klokdG5/csiAsNK7cd4xyX3QpRjPqLH0fcOHyNR894qVj1Sm/MR%2BKSJsHKCG/8tidQggpKPcFakYAoP58qUpR8uHDX7xh5bpd0VSDVszTR4uBICcaM/tT7ouuRwCg/tLmAbE2lx63fsPyU0aj6catmzdu5YdyX3Q9AgANkb7%2BrSTJpcevv3j5KeNxqYN2zlDuC0d0zDWJjpMumKQNZF49csxoNB2ohrwPqC/KfeEORjYaSApprYi0vurEc9cNPHe0YQ1k6oVyXziFwY3GUlJqYwf3NQ8YbVjzgPmj3BeuYXyj4fZvHnBqI5sHzBPlvnANQxzN4Ek1kwFH5IfbMAPo7gsHMcrRJDMNZL524huHGtlAZg7o7gs3MdDRPGnzgDV/0Dyg9SOQcl84q/WXH5yyf/OABX6ualq8xZ5yX7iMAECz7c2AgSUbX/g2bY22pkHNA2ZzJJT7wmUEAFrAl6oYxX86sOyy1a%2BbTqIGNQ84NMp9AQIArbGvecALv7ivgUwz114o9wUEAYAWmmke8IXjz5nWkWjW21fKfYEU4x6t5O/LgM%2Bvft1EXG7C/kvKfYEZDH20mC9VKYrfvWLt%2B1ecsrs63eibccp9gRmMfrSekqocJ59b/doNK04ZjRqYAZT7AvvjAkDrpbVXFb23ecBo1JAPxlHuCxyAawBtYf/mAe9ZdnLdmwdQ7gv8MQIA7WKmecC/H/ua0wZW1bF5AOW%2BwEERAGgjafOArPKvXfP2tHlAMO%2BFGsp9gWdCAKC9KCkjbWaaB4zF5fm8D6DcFzgEAgBtx5OyopN%2BP/vDNee/oO%2BwOTcPoNwXODSuB7SjtIHMYJC78oRz0%2BYBtc7dinJf4NlwSdTM2lYfgRvS5gEn9C1KmwdM6ers3wd4UmlhppLqlyj3BZ4ZV0XNfI9fWpPs3zxgcdi7Oy77Uh16EV8KGUivqKPYmC8df84FlPs6QyklecFTIy6MGkgpkzi%2Bb/MDQgjLg0BTpB8NXdu/5JYX/eVrRo4ejYolHXtSeTK93NO/hJLSk8qXKrZ6VzR1ZH7o%2BpPfdcGyNUXKfR1grVVSPPTwttHRMd/3uTZnz2/1AXQSKaXVenJqutUH4hZPqlISLwp7rn3h27/2%2BF2XbL/l7snHjbCB9ELlCSGkELExkdHGmhW5gb9/7unvW3HKQJDl3t8R1lopRKlcrlarYdhjjGn1EXUMAqA2UqnJySkhBA%2BbzeRJVdVaSvGOZS88d/EJPxt96CejWx%2BYemp7ZVxJpY1emOk9sjD08qEjXzF81GH53jgxpSTh3t8pe/ZMtvoQOg8BUANrrfT9zVu2CgKg6dKl/1IUB9I7e/GxZy8%2BNtF2d1RUUmpr%2B/xsPvCFEFrbdNnH4wQ5I13z2XL/1iSKlFI8AcweAVADa20YBDt2PjY5XcrlclprYqDJPKmMsKU4Tv9%2BOCyk/1zbvf9QScmyj2vSy/B/f/uI9DxeANSES6UGxpgwDHY%2B9sSOnY/7nmSotYQUIn0JLISIrU7/MsKm/5CP/DjI9/1SuXr/A/8bhAFXZU0IgNr4vj81OfXbhx6RbARqA/t2AfEg5i5rre%2Brp0Z373j08UwYclXWhACojZTSGnP9z37d6gMBIIQQWmslxA03/Wb3rt1BwBNAbQiA2hhjgkzmN7ffVa5Evs8bFKDF0hcAN950m7GWd3K1IgBqY4zJ57IPPPi/d92zJfCV1rrVRwS4y1obhsH4xNQvfnVzLp/jeqwVAVAzz/PKpfKPf/ozXgMArWWM8aS86dY7fvfI9lw2w/VYKwKgZsaYMJv572t/VY3iIAhafTiA06QUP/7JzxKtJdt/a8evrGbGmEI%2Bv3nLg7%2B%2B6TZWgYBWsdaGgf/Ek7v%2B6/pf5gt5rsQ5IADmQkoZRdEXr/i6FIItiEBLaK19T337ez/a9vDvctks6z9zQADMhda6t7fn//3ixvu3PpwNfUrPgaazaf3XN771g0w%2BzzU4NwTAHAVBMDY2/h%2BXfllJSoKBZksSnQm87137k9tvv6tQIADmSPYvWt3qY%2BhUVggpxM2/uu6Yo1ZVo0TRcwpoCmutlMJove4l52y5/8E8TwBzxZw1d77nTU1Nf%2BSfP33oHlUA6ktrnQn8Sz7/lTvvvKenhwYAc8cTwLx4nrdnYs%2B3v/GFN5z9ymK5Sm0w0GjGmMD3tm1/9NQzzi5VKj5fAJ0HngDmxVobhMG/fOzfJqeLgc9ABBrOWut76mOf/OxTu0b5%2Bts8EQDzYowpFApb7t/6oY98KgzYDgQ0VpIk%2BWz41W9svOabGwcHB5IkafURdTaWgOrA87yxsfGvfPlz7zjvHBaCgAbRWuey4X1btp75snOjJGHxZ/4IgDqQUmqtA9//5fXfO%2BG4o4vlyPe9Vh8U0FWMMZ6SURS95JV/fvc9W3p7eyj9nT%2BWgOrAWhsEwdR08cKL/mZsfE8uG7IWBNSRtVZKGQb%2BB//%2BY7fffld/fy%2Bzf10QAPWhte7r673zrvvWn3vh2PiEp6TWZABQB9ZarXUYeBs%2B%2BM9XXPG1oeGhOGbpvz4IgLpJkmRwcOCmG25953s%2BGAY%2B74SB%2BbPWGmMKucwnP3PZ5Z/7wvDCEV781hEBUE9xHA8tHP6f63953js/MDk5GYZBwoMqMFfpLVQ%2BG37i05d88jP/sWAxs3%2BdEQB1liRJX1/fN6/57vpzL9yzZ08hG8YMWaB2Wmvf97Khv%2BGDH/3oRz6RzWSEpQVTnREA9ZckychzFt18y%2B1nnXPBQ49s78llkkQzcIHZS/f7VyuV92z40OWXXzV82GJrLRdR3READRFF8eDgwG2333X6S9/w/Wt/WsiF6VbRVh8X0O6MMYnWhVzm7nvvf8kr//yKL18zNDIUxwmzfyMQAI2SJElfX%2B/k1PSfv%2B0v//4fPymFzWdDHgWAQ0iSJJsJCtnwqqu/89JXvfnue7YMjwyx7t84FII1VvqN6PGx8XXr/vRj//w3Z57%2BIm1FpRJ5npJ8QxQQQghhrdBG%2B56XCbytv/3dJz79uW9%2B%2B9pcLheGAc/NDUUANIPv%2B5OTU55S57/tjf/04b9atmRxGgNKSboIwGXWWq1NEPihr8qV6HOXXvHZS6546qldg4MDxhgelxuNAGgSz1PWivGx8WXLl773wvPedcFbnrNoRAhRqsRCWKV4IIBD0t39VohsJvSkKFWq3/nejy69/KpNd97T09ebCUOWfZqDAGgq3/crlWpxauq5q1a%2B6dyzznvz60887mghhBWiUo2NsUrJVKuPFKiz9HY%2B3dofhqGvhBDi8d/v%2BtZ3fvjN7/7wjjvuzmQyPT15rbnxbx4CoNmklJ7nVSrV4uTU4MjQS8445bWv/rMzTj9lxbLD0n8h1jZJEmPMvhiQSpEH6DwzGzettVIq3/cCf%2B9QHhufvOHm237yXz//n%2Bt/te2R7Zl8rlDIp48FrT1m1xAArZHGQBzHU9NFa8zixYtOO/Xk00456YwzTl2%2BbEl/b2H/f9lYwR0ROo73h/ct5Ur0xO%2BfvOGm226%2B5fZf/uqWh3%2B3XWtdKOSz2awxhqm/JQiAVpJy70vgKIpLpZJJdP9A/2HPWXT0UYcfv/roI488fOmSxVKpY446wqfdGDqKlPLhR7ZPF4tTU9Obtzy4devDD2z97aOPPrFrdLe1Np/PZbMZKaTmTW9LEQBtIU0CKWUcJ3EcVauRSRLpeZ7vKakWLhz2lLLCCsFaEDqBtVLK0d1jlWpVWKHjWHp%2BGAZhGARBIIVg3m8TBEDbmQmDmSXUKI4FVws6TRAE6X4GqZTdT6uPC0%2BjeWHbSb9%2Bvv8/CegxiQ709HTP%2Bn67YmbpANw0AWgEylABwFEEAAA4igAAAEcRAADgKAIAABxFAACAowgAAHAUAQAAjiIAAMBRBAAAOIoAAABHEQAA4CgCAAAcRQAAgKMIAABwFAEAAI4iAADAUQQAADiKAAAARxEAAOAoAgAAHEUAAICjCAAAcBQBAACOIgAAwFEEAAA4igAAAEcRAADgKAIAABxFAACAowgAAHAUAQAAjiIAAMBRBAAAOIoAAABHEQAA4CgCAAAcRQAAgKMIAABwFAEAAI4iAADAUQQAADiKAAAARxEAAOAoAgAAHEUAAICjCAAAcBQBAACOIgAAwFEEAAA4igAAAEcRAADgKAIAABxFAACAowgAAHAUAQAAjiIAAMBRBAAAOIoAAABHEQAA4CgCAAAcRQAAgKMIAABwFAEAAI4iAADAUQQAADiKAAAARxEAAOAoAgAAHEUAAICjCAAAcBQBAACOIgAAwFEEAAA4igAAAEcRAADgKAIAABxFAACAowgAAHAUAQAAjiIAAMBRBAAAOIoAAABHEQAA4CgCAAAcRQAAgKMIAABwFAEAAI4iAADAUQQAADiKAAAARxEAAOAoAgAAHEUAAICjCAAAcBQBAACOIgAAwFEEAAA46v8DzqD2A6zegO4AAAAASUVORK5CYII%3D%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/png%22%7D%5D%7D">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<title>TerminBuch · Randevu Defterim</title>
+<style>
+:root {
+  --bg: #0f172a; --card: #1e293b; --card2: #334155; --txt: #f8fafc; --muted: #94a3b8;
+  --pri: #3b82f6; --pri-glow: rgba(59, 130, 246, 0.35); --ok: #10b981; --warn: #f59e0b; --danger: #ef4444; --radius: 16px;
+}
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+body { margin: 0; background: var(--bg); color: var(--txt); padding-bottom: 95px; overflow-x: hidden; user-select: none; }
+button, input, select, textarea { font: inherit; color: inherit; border: none; outline: none; background: none; }
+button { cursor: pointer; }
+
+.top {
+  position: sticky; top: 0; z-index: 50; display: flex; align-items: center; gap: 10px;
+  padding: calc(12px + env(safe-area-inset-top)) 16px 12px;
+  background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.logo-dot { width: 12px; height: 36px; border-radius: 6px; background: linear-gradient(180deg, #3b82f6 0%, #f43f5e 50%, #f8fafc 100%); }
+.top .g { flex: 1; }
+.top .g b { font-size: 18px; display: block; }
+.top .g small { color: var(--muted); font-size: 12px; }
+.lang-bar { display: flex; background: var(--card); border-radius: 10px; padding: 3px; gap: 2px; }
+.lang-btn { padding: 4px 7px; border-radius: 7px; font-size: 12px; font-weight: 600; opacity: 0.6; }
+.lang-btn.on { background: var(--pri); opacity: 1; color: #fff; }
+.icon-btn { width: 38px; height: 38px; border-radius: 12px; background: var(--card); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+
+main { padding: 0 14px; max-width: 600px; margin: 0 auto; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+.card { background: var(--card); border-radius: var(--radius); padding: 14px; border: 1px solid rgba(255,255,255,0.06); }
+.card small { color: var(--muted); font-size: 11px; font-weight: 600; text-transform: uppercase; }
+.big { font-size: 26px; font-weight: 800; margin: 4px 0; }
+.big.ok { color: var(--ok); } .big.warn { color: var(--warn); }
+
+.alert-banner {
+  margin-top: 12px; padding: 12px 14px; border-radius: 14px;
+  background: linear-gradient(135deg, rgba(245,158,11,0.2), rgba(239,68,68,0.2));
+  border: 1px solid rgba(245,158,11,0.4); display: flex; align-items: center; justify-content: space-between; gap: 10px;
+}
+.wk { display: flex; align-items: center; gap: 6px; margin: 14px 0 10px; }
+.wk > button { width: 32px; height: 58px; border-radius: 12px; background: var(--card); font-size: 20px; }
+.week { flex: 1; display: grid; grid-template-columns: repeat(6, 1fr); gap: 5px; }
+.wd { background: var(--card); border-radius: 12px; padding: 7px 2px; text-align: center; font-size: 11px; color: var(--muted); }
+.wd b { display: block; font-size: 15px; color: var(--txt); margin: 2px 0; }
+.wd i { display: block; font-style: normal; color: var(--pri); font-size: 10px; height: 10px; }
+.wd.on { background: var(--pri); color: #fff; box-shadow: 0 4px 14px var(--pri-glow); }
+.wd.on b, .wd.on i { color: #fff; }
+
+.hd { display: flex; align-items: center; justify-content: space-between; margin: 14px 0 10px; }
+.hd b { font-size: 17px; }
+.pri-btn { background: var(--pri); color: #fff; font-weight: 700; font-size: 14px; padding: 10px 16px; border-radius: 12px; box-shadow: 0 4px 12px var(--pri-glow); }
+.sec-btn { background: var(--card); color: var(--txt); padding: 8px 12px; border-radius: 10px; font-size: 13px; font-weight: 600; }
+
+.r { background: var(--card); border-radius: 15px; padding: 12px; margin-bottom: 9px; display: flex; align-items: center; gap: 12px; border-left: 4px solid var(--pri); }
+.r.done { border-left-color: var(--ok); opacity: 0.85; }
+.r.cancel { border-left-color: var(--danger); opacity: 0.5; text-decoration: line-through; }
+.tm { min-width: 54px; text-align: center; background: rgba(255,255,255,0.04); padding: 7px 6px; border-radius: 10px; font-weight: 800; font-size: 15px; }
+.tm small { display: block; font-size: 10px; color: var(--muted); margin-top: 2px; }
+.r .g { flex: 1; min-width: 0; }
+.r .g b { font-size: 15px; display: flex; align-items: center; gap: 5px; }
+.r .g small { color: var(--muted); font-size: 12px; display: block; margin-top: 2px; }
+.r-actions { display: flex; align-items: center; gap: 6px; }
+.act-ico { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 16px; background: rgba(255,255,255,0.06); }
+.act-ico.wa { background: rgba(37, 211, 102, 0.18); color: #4ade80; }
+.pr { text-align: right; font-weight: 700; font-size: 14px; }
+.tg { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 6px; margin-top: 3px; font-weight: 700; text-transform: uppercase; }
+.tg.wait { background: rgba(59,130,246,0.2); color: #60a5fa; }
+.tg.nakit, .tg.kart { background: rgba(16,185,129,0.2); color: #34d399; }
+.tg.veresiye { background: rgba(245,158,11,0.2); color: #fbbf24; }
+
+.seg { display: flex; background: var(--card); padding: 4px; border-radius: 12px; margin-top: 12px; }
+.seg button { flex: 1; padding: 8px; border-radius: 9px; font-size: 13px; font-weight: 600; color: var(--muted); }
+.seg button.on { background: var(--pri); color: #fff; }
+.mh { display: flex; align-items: center; justify-content: space-between; margin: 12px 0; }
+.mh button { width: 36px; height: 36px; border-radius: 10px; background: var(--card); font-size: 18px; }
+.cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; text-align: center; }
+.dw { font-size: 11px; color: var(--muted); padding: 4px 0; font-weight: 600; }
+.cd { background: var(--card); border-radius: 10px; padding: 10px 2px; font-size: 13px; position: relative; }
+.cd.x { opacity: 0.25; } .cd.td { border: 1px solid var(--pri); } .cd.on { background: var(--pri); color: #fff; font-weight: 700; }
+.cd span { display: block; font-size: 10px; color: var(--ok); font-weight: 800; }
+.cd.on span { color: #fff; }
+
+.li { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.06); gap: 10px; }
+.empty { text-align: center; color: var(--muted); padding: 28px 14px; font-size: 13px; }
+
+nav {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 60;
+  background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(255,255,255,0.08); display: grid; grid-template-columns: repeat(6, 1fr);
+  padding: 6px 8px calc(8px + env(safe-area-inset-bottom)); max-width: 600px; margin: 0 auto; align-items: center;
+}
+nav button { display: flex; flex-direction: column; align-items: center; gap: 3px; color: var(--muted); font-size: 10px; font-weight: 600; padding: 6px 2px; border-radius: 10px; }
+nav button i { font-style: normal; font-size: 19px; }
+nav button.on { color: var(--pri); }
+.mic-fab { background: linear-gradient(135deg, #3b82f6, #2563eb); color: #fff !important; border-radius: 16px !important; padding: 10px 4px !important; transform: translateY(-6px); }
+
+.modal-bg { position: fixed; inset: 0; z-index: 100; background: rgba(0,0,0,0.72); backdrop-filter: blur(5px); display: none; align-items: flex-end; justify-content: center; }
+.modal-bg.open { display: flex; }
+.sheet { background: var(--card); width: 100%; max-width: 540px; border-radius: 24px 24px 0 0; padding: 20px 18px calc(24px + env(safe-area-inset-bottom)); max-height: 90vh; overflow-y: auto; }
+.field { margin-bottom: 12px; }
+.field label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 5px; font-weight: 600; }
+.inp { width: 100%; background: var(--bg); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 12px; font-size: 15px; color: var(--txt); }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.chip { background: var(--bg); padding: 7px 11px; border-radius: 10px; font-size: 12px; border: 1px solid rgba(255,255,255,0.1); }
+.chip.on { background: var(--pri); border-color: var(--pri); color: #fff; font-weight: 600; }
+.btn-row { display: flex; gap: 8px; margin-top: 16px; }
+.btn-row button { flex: 1; padding: 13px; border-radius: 12px; font-weight: 700; font-size: 14px; }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="logo-dot"></div>
+  <div class="g"><b id="appTitle">Randevu Defterim</b><small id="todayLabel"></small></div>
+  <div class="lang-bar">
+    <button class="lang-btn" onclick="setLang('tr')" id="lg-tr">TR</button>
+    <button class="lang-btn" onclick="setLang('de')" id="lg-de">DE</button>
+    <button class="lang-btn" onclick="setLang('en')" id="lg-en">EN</button>
+  </div>
+  <button class="icon-btn" onclick="openSettings()">⚙️</button>
+</header>
+
+<main id="app"></main>
+
+<nav>
+  <button onclick="go('r')" id="nv-r"><i>📅</i><span data-t="nav_r">Randevu</span></button>
+  <button onclick="go('t')" id="nv-t"><i>🗓️</i><span data-t="nav_t">Takvim</span></button>
+  <button onclick="openVoiceModal()" class="mic-fab"><i>🎙️</i><span data-t="nav_mic">Sesli Ekle</span></button>
+  <button onclick="go('k')" id="nv-k"><i>💰</i><span data-t="nav_k">Kasa</span></button>
+  <button onclick="go('v')" id="nv-v"><i>📓</i><span data-t="nav_v">Veresiye</span></button>
+  <button onclick="go('c')" id="nv-c"><i>✂️</i><span data-t="nav_c">Personel</span></button>
+</nav>
+
+<div class="modal-bg" id="modalBg" onclick="if(event.target===this)closeModal()">
+  <div class="sheet" id="modalContent"></div>
+</div>
+
+<script>
+const I18N = {
+  tr: {
+    defaultTitle: "Randevu Defterim",
+    nav_r: "Randevu", nav_t: "Takvim", nav_mic: "Sesli", nav_k: "Kasa", nav_v: "Veresiye", nav_c: "Personel",
+    today: "Bugün", tomorrow: "Yarın", yesterday: "Dün",
+    done: "bitti", waiting: "bekliyor", cashIn: "KASAYA GİREN", credit: "veresiye",
+    allCal: "📅 Tüm Takvim", backToday: "Bugüne Dön", addApp: "+ Randevu",
+    noApp: "Bu gün randevu yok.<br>“+ Randevu”ya veya 🎙️ Sesli tuşuna dokunun.",
+    month: "Ay", list: "Liste", upcoming: "Yaklaşan",
+    in: "Giren", out: "Çıkan", records: "Kayıtlar", addEntry: "+ Kayıt Ekle",
+    totalDebt: "Toplam Alacak", noDebt: "Kimsenin borcu yok.", collect: "Tahsil Et",
+    staffShare: "Personel Payı (%)", turnover: "Ciro", earned: "Hak Ediş", advance: "Avans", remaining: "Kalan", addAdvance: "+ Avans Yaz",
+    custName: "Müşteri Adı", phone: "Telefon (WhatsApp için)", custLang: "Müşteri WhatsApp Dili",
+    date: "Tarih", time: "Saat", service: "İşlem / Hizmet", price: "Ücret", staff: "Yapan Kişi",
+    save: "Kaydet", cancel: "İptal", delete: "Sil", complete: "Tamamla (Ödeme Al)",
+    cash: "Nakit", card: "Kart",
+    voiceTitle: "🎙️ Akıllı Sesli Komut",
+    voiceHint: "Örnek: <i>Yarın 14:30 Mehmet saç kesimi 40 euro</i>",
+    startMic: "🔴 Canlı Mikrofonu Başlat",
+    applyVoice: "✨ Cümleyi Çözümle ve Ekle",
+    settings: "Uygulama Ayarları", shopName: "İşletme Adı", currency: "Para Birimi",
+    staffName: "Personel Adı", backup: "📥 Yedek İndir", restore: "📤 Yedek Yükle", resetAll: "🗑️ Sıfırla",
+    soonAlert: "Yaklaşan Randevu:", minLeft: "dk kaldı!",
+    services: [["Saç Kesimi", 300], ["Sakal", 150], ["Saç + Sakal", 400], ["Çocuk Tıraşı", 200], ["Cilt Bakımı", 250]]
+  },
+  de: {
+    defaultTitle: "TerminBuch Pro",
+    nav_r: "Termine", nav_t: "Kalender", nav_mic: "Sprache", nav_k: "Kasse", nav_v: "Offen", nav_c: "Personal",
+    today: "Heute", tomorrow: "Morgen", yesterday: "Gestern",
+    done: "erledigt", waiting: "wartet", cashIn: "EINNAHMEN", credit: "offen",
+    allCal: "📅 Kalender", backToday: "Heute", addApp: "+ Termin",
+    noApp: "Keine Termine.", month: "Monat", list: "Liste", upcoming: "Kommende",
+    in: "Einnahmen", out: "Ausgaben", records: "Einträge", addEntry: "+ Eintrag",
+    totalDebt: "Offene Beträge", noDebt: "Keine Schulden.", collect: "Kassieren",
+    staffShare: "Anteil (%)", turnover: "Umsatz", earned: "Anteil", advance: "Vorschuss", remaining: "Rest", addAdvance: "+ Vorschuss",
+    custName: "Kundenname", phone: "Telefon", custLang: "Sprache",
+    date: "Datum", time: "Uhrzeit", service: "Dienstleistung", price: "Preis", staff: "Mitarbeiter",
+    save: "Speichern", cancel: "Abbrechen", delete: "Löschen", complete: "Abschließen",
+    cash: "Bar", card: "Karte",
+    voiceTitle: "🎙️ Sprachbefehl", voiceHint: "Beispiel: <i>Morgen 14:30 Hans Haarschnitt 30 euro</i>",
+    startMic: "🔴 Mikrofon starten", applyVoice: "✨ Speichern",
+    settings: "Einstellungen", shopName: "Salon", currency: "Währung", staffName: "Mitarbeiter", backup: "📥 Backup", resetAll: "🗑️ Reset",
+    services: [["Haarschnitt", 25], ["Bart", 15], ["Haare + Bart", 35], ["Kinderhaarschnitt", 18], ["Gesichtspflege", 20]]
+  },
+  en: {
+    defaultTitle: "SmartBook Pro",
+    nav_r: "Bookings", nav_t: "Calendar", nav_mic: "Voice", nav_k: "Cash", nav_v: "Tabs", nav_c: "Staff",
+    today: "Today", tomorrow: "Tomorrow", yesterday: "Yesterday",
+    done: "done", waiting: "waiting", cashIn: "CASH IN", credit: "on tab",
+    allCal: "📅 Calendar", backToday: "Today", addApp: "+ Booking",
+    noApp: "No appointments.", month: "Month", list: "Liste", upcoming: "Upcoming",
+    in: "Income", out: "Expense", records: "Records", addEntry: "+ Add Record",
+    totalDebt: "Total", noDebt: "No debt.", collect: "Collect",
+    staffShare: "Commission (%)", turnover: "Total", earned: "Earned", advance: "Advance", remaining: "Remaining", addAdvance: "+ Add Advance",
+    custName: "Client Name", phone: "Phone", custLang: "Language",
+    date: "Date", time: "Time", service: "Service", price: "Price", staff: "Staff",
+    save: "Save", cancel: "Cancel", delete: "Delete", complete: "Complete",
+    cash: "Cash", card: "Card",
+    voiceTitle: "🎙️ Voice Command", voiceHint: "Example: <i>Tomorrow 14:30 John haircut 30 euro</i>",
+    startMic: "🔴 Start Mic", applyVoice: "✨ Save",
+    settings: "Settings", shopName: "Business", currency: "Currency", staffName: "Staff", backup: "📥 Backup", resetAll: "🗑️ Reset",
+    services: [["Haircut", 25], ["Beard Trim", 15], ["Hair + Beard", 35], ["Kids Cut", 18], ["Facial", 25]]
+  }
+};
+
+Object.assign(I18N.tr, {
+  autoRem: "Otomatik WhatsApp hatırlatma", rm30: "30 dk önce", rm60: "1 saat önce",
+  remDue: "💬 Hatırlatma zamanı:", remSend: "WhatsApp'ı aç",
+  needPhone: "Hatırlatma için telefon numarası yazın.",
+  calAsk: "Uygulama kapalıyken de iPhone bildirimi gelsin mi? (Takvime alarm eklenir)",
+  restoreAsk: "Mevcut tüm veriler bu yedekle değiştirilsin mi?", restoreBad: "Geçersiz yedek dosyası.", restoreOk: "Yedek yüklendi."
+});
+Object.assign(I18N.de, {
+  autoRem: "Automatische WhatsApp-Erinnerung", rm30: "30 Min. vorher", rm60: "1 Std. vorher",
+  remDue: "💬 Erinnerung fällig:", remSend: "WhatsApp öffnen",
+  needPhone: "Bitte Telefonnummer eingeben.",
+  calAsk: "Auch bei geschlossener App benachrichtigen? (Kalender-Alarm)",
+  restoreAsk: "Alle aktuellen Daten durch dieses Backup ersetzen?", restoreBad: "Ungültige Backup-Datei.", restoreOk: "Backup geladen.",
+  restore: "📤 Backup laden"
+});
+Object.assign(I18N.en, {
+  autoRem: "Auto WhatsApp reminder", rm30: "30 min before", rm60: "1 hour before",
+  remDue: "💬 Reminder due:", remSend: "Open WhatsApp",
+  needPhone: "Enter a phone number for the reminder.",
+  calAsk: "Also notify when the app is closed? (adds a calendar alarm)",
+  restoreAsk: "Replace all current data with this backup?", restoreBad: "Invalid backup file.", restoreOk: "Backup loaded.",
+  restore: "📤 Restore"
+});
+
+const KEY = "terminbuch-pro-clean-v1";
+let S = { lang: "tr", a: [], l: [], set: { shop: "", cur: "€", ci: "Personel", pct: 40 } };
+try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(S, JSON.parse(raw)); } catch (e) {}
+if (navigator.storage && navigator.storage.persist) navigator.storage.persist();
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
+function T(k) { return (I18N[S.lang] && I18N[S.lang][k]) || I18N.tr[k] || k; }
+function localeStr() { return S.lang === "de" ? "de-DE" : S.lang === "en" ? "en-US" : "tr-TR"; }
+
+function ymd(d) {
+  const m = d.getMonth() + 1, x = d.getDate();
+  return d.getFullYear() + "-" + (m < 10 ? "0" : "") + m + "-" + (x < 10 ? "0" : "") + x;
+}
+function pd(s) { const p = s.split("-"); return new Date(+p[0], +p[1] - 1, +p[2]); }
+function shift(s, n) { const d = pd(s); d.setDate(d.getDate() + n); return ymd(d); }
+function money(n) { return Math.round(n).toLocaleString(localeStr()) + " " + (S.set.cur || "€"); }
+function esc(s) { return String(s || "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 5); }
+function cap(s) { return String(s || "").trim().split(/\s+/).map(w => w.charAt(0).toLocaleUpperCase("tr") + w.slice(1).toLocaleLowerCase("tr")).join(" "); }
+function dl(s) {
+  if (s === today) return T("today");
+  if (s === shift(today, 1)) return T("tomorrow");
+  if (s === shift(today, -1)) return T("yesterday");
+  return pd(s).toLocaleDateString(localeStr(), { day: "numeric", month: "long" });
+}
+
+let view = "r", today = ymd(new Date()), day = today, cmo = today.slice(0, 7), cmode = "ay";
+let notifiedIds = {};
+
+function calc(d) {
+  let c = 0, v = 0, g = 0;
+  S.a.forEach(a => { if (a.d === d && a.st === "done") { if (a.pay === "veresiye") v += +a.p; else c += +a.p; } });
+  S.l.forEach(e => { if (e.d === d) { if (e.k === "gelir" || e.k === "tahsilat") c += +e.p; else if (e.k === "veresiye") v += +e.p; else g += +e.p; } });
+  return { c, v, g };
+}
+function debts() {
+  const m = {};
+  S.a.forEach(a => { if (a.st === "done" && a.pay === "veresiye") m[a.n] = (m[a.n] || 0) + +a.p; });
+  S.l.forEach(e => { if (e.k === "veresiye") m[e.n] = (m[e.n] || 0) + +e.p; if (e.k === "tahsilat") m[e.n] = (m[e.n] || 0) - +e.p; });
+  Object.keys(m).forEach(k => { if (m[k] <= 0) delete m[k]; }); return m;
+}
+
+function setLang(l) { S.lang = l; save(); render(); }
+function go(v) { view = v; render(); }
+
+function render() {
+  document.getElementById("appTitle").textContent = S.set.shop || T("defaultTitle");
+  document.getElementById("todayLabel").textContent = new Date().toLocaleDateString(localeStr(), { day: "numeric", month: "long", weekday: "long" });
+  ["tr", "de", "en"].forEach(l => document.getElementById("lg-" + l).classList.toggle("on", S.lang === l));
+  ["r", "t", "k", "v", "c"].forEach(v => document.getElementById("nv-" + v).classList.toggle("on", view === v));
+  document.querySelectorAll("[data-t]").forEach(el => el.textContent = T(el.dataset.t));
+  document.getElementById("app").innerHTML = dueRemindersBanner() + checkUpcomingBanner() + ({ r: vR, t: vT, k: vK, v: vV, c: vC })[view]();
+}
+
+function checkUpcomingBanner() {
+  const now = new Date(), curMin = now.getHours() * 60 + now.getMinutes();
+  const todayApps = S.a.filter(a => a.d === today && a.st === "wait");
+  for (let a of todayApps) {
+    const [hh, mm] = a.t.split(":").map(Number);
+    const diff = (hh * 60 + mm) - curMin;
+    if (diff >= 0 && diff <= 30) {
+      if (diff <= 15 && !notifiedIds[a.id]) { notifiedIds[a.id] = true; playDing(); }
+      return `<div class="alert-banner"><div><b>⏰ ${T("soonAlert")} ${esc(a.n)} (${a.t})</b><br><small>${esc(a.sv)} · ${diff} ${T("minLeft")}</small></div><button class="sec-btn" onclick="addCalAlarm('${a.id}')">🔔 Alarm</button></div>`;
+    }
+  }
+  return "";
+}
+function dueReminders() {
+  const now = Date.now(), out = [];
+  S.a.forEach(a => {
+    if (!a.ar || a.sent || a.st !== "wait") return;
+    const p = a.d.split("-").map(Number), q = a.t.split(":").map(Number);
+    const at = new Date(p[0], p[1] - 1, p[2], q[0], q[1]).getTime();
+    if (now >= at - (+a.rm || 60) * 60000 && now < at) out.push(a);
+  });
+  return out;
+}
+function dueRemindersBanner() {
+  let h = "";
+  dueReminders().forEach(a => {
+    const k = "rem" + a.id;
+    if (!notifiedIds[k]) { notifiedIds[k] = true; playDing(); }
+    h += `<div class="alert-banner"><div><b>${T("remDue")} ${esc(a.n)} (${a.t})</b><br><small>${esc(a.sv)}</small></div><button class="pri-btn" onclick="sendWhatsApp('${a.id}')">💬 ${T("remSend")}</button></div>`;
+  });
+  return h;
+}
+function playDing() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = "sine"; o.frequency.setValueAtTime(880, ctx.currentTime); g.gain.setValueAtTime(0.2, ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.8); o.connect(g); g.connect(ctx.destination); o.start(); o.stop(ctx.currentTime + 0.8);
+  } catch (e) {}
+}
+
+function vR() {
+  const L = S.a.filter(a => a.d === day).sort((a, b) => a.t < b.t ? -1 : 1);
+  const live = L.filter(a => a.st !== "cancel"), dn = L.filter(a => a.st === "done").length, c = calc(day);
+  let h = `<div class="two"><div class="card"><small>${dl(day)}</small><div class="big">${live.length}</div><small>${dn} ${T("done")} · ${live.length - dn} ${T("waiting")}</small></div><div class="card"><small>${T("cashIn")}</small><div class="big ok">${money(c.c)}</div><small>${money(c.v)} ${T("credit")}</small></div></div><div class="wk"><button onclick="day=shift(day,-7);render()">‹</button><div class="week">`;
+  for (let i = -2; i <= 3; i++) {
+    const d = shift(day, i), n = S.a.filter(a => a.d === d && a.st !== "cancel").length;
+    h += `<div class="wd ${d === day ? "on" : ""}" onclick="day='${d}';render()">${d === today ? T("today") : pd(d).toLocaleDateString(localeStr(), { weekday: "short" })}<b>${pd(d).getDate()}</b><i>${"•".repeat(Math.min(n, 5))}</i></div>`;
+  }
+  h += `</div><button onclick="day=shift(day,7);render()">›</button></div><div style="display:flex;gap:8px;margin-bottom:8px"><button class="sec-btn" onclick="go('t')">${T("allCal")}</button>${day !== today ? `<button class="sec-btn" onclick="day='${today}';render()">${T("backToday")}</button>` : ""}</div><div class="hd"><div><b>${dl(day)}</b><br><small>${live.length} · ${money(c.c + c.v)}</small></div><button class="pri-btn" onclick="openAppModal()">${T("addApp")}</button></div>`;
+  if (!L.length) h += `<div class="empty">${T("noApp")}</div>`;
+  L.forEach(a => h += arow(a));
+  return h;
+}
+
+function arow(a) {
+  const flag = a.lg === "de" ? "🇩🇪" : a.lg === "en" ? "🇬🇧" : "🇹🇷";
+  const tag = a.st === "done" ? `<span class="tg ${a.pay}">${a.pay}</span>` : a.st === "cancel" ? `<span class="tg veresiye">X</span>` : `<span class="tg wait">${T("waiting")}</span>`;
+  return `<div class="r ${a.st}" onclick="openActionModal('${a.id}')"><div class="tm">${a.t}<small>${esc(a.who)}</small></div><div class="g"><b><span>${flag}</span> ${esc(a.n)}${a.ar ? (a.sent ? " ✅" : " 🔔") : ""}</b><small>${esc(a.sv)}</small></div><div class="r-actions" onclick="event.stopPropagation()"><button class="act-ico wa" onclick="sendWhatsApp('${a.id}')">💬</button><button class="act-ico" onclick="addCalAlarm('${a.id}')">🔔</button></div><div class="pr">${money(a.p)}<br>${tag}</div></div>`;
+}
+
+function vT() {
+  const y = +cmo.slice(0, 4), mo = +cmo.slice(5, 7) - 1, first = new Date(y, mo, 1);
+  const ml = first.toLocaleDateString(localeStr(), { month: "long", year: "numeric" });
+  const M = S.a.filter(a => a.d.slice(0, 7) === cmo && a.st !== "cancel");
+  let h = `<div class="seg"><button class="${cmode === 'ay' ? 'on' : ''}" onclick="cmode='ay';render()">${T("month")}</button><button class="${cmode === 'liste' ? 'on' : ''}" onclick="cmode='liste';render()">${T("list")}</button><button class="${cmode === 'hepsi' ? 'on' : ''}" onclick="cmode='hepsi';render()">${T("upcoming")}</button></div>`;
+  if (cmode !== "hepsi") h += `<div class="mh"><button onclick="shiftMonth(-1)">‹</button><div style="text-align:center"><b>${ml}</b><br><small>${M.length}</small></div><button onclick="shiftMonth(1)">›</button></div>`;
+  if (cmode === "ay") {
+    const days = S.lang === "de" ? ["Mo","Di","Mi","Do","Fr","Sa","So"] : S.lang === "en" ? ["Mo","Tu","We","Th","Fr","Sa","Su"] : ["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"];
+    h += `<div class="cal">` + days.map(x => `<div class="dw">${x}</div>`).join("");
+    const off = (first.getDay() + 6) % 7, start = shift(ymd(first), -off);
+    for (let i = 0; i < 42; i++) {
+      const d = shift(start, i), dd = pd(d);
+      if (i >= 35 && dd.getMonth() !== mo) break;
+      const n = S.a.filter(a => a.d === d && a.st !== "cancel").length;
+      h += `<div class="cd ${dd.getMonth() !== mo ? 'x' : ''} ${d === today ? 'td' : ''} ${d === day ? 'on' : ''}" onclick="day='${d}';render()">${dd.getDate()}${n ? `<span>${n}</span>` : ""}</div>`;
+    }
+    h += `</div>`;
+    const L = S.a.filter(a => a.d === day).sort((a,b) => a.t < b.t ? -1 : 1);
+    h += `<div class="hd"><b>${dl(day)}</b><button class="pri-btn" onclick="openAppModal()">${T("addApp")}</button></div>`;
+    if (!L.length) h += `<div class="empty">${T("noApp")}</div>`;
+    L.forEach(a => h += arow(a));
+    return h;
+  }
+  const A = (cmode === "liste" ? S.a.filter(a => a.d.slice(0, 7) === cmo) : S.a.filter(a => a.d >= today && a.st !== "cancel")).sort((a, b) => a.d === b.d ? (a.t < b.t ? -1 : 1) : (a.d < b.d ? -1 : 1));
+  if (!A.length) return h + `<div class="empty">${T("noApp")}</div>`;
+  A.forEach(a => h += arow(a));
+  return h;
+}
+function shiftMonth(n) { cmo = ymd(new Date(+cmo.slice(0, 4), +cmo.slice(5, 7) - 1 + n, 1)).slice(0, 7); render(); }
+
+function vK() {
+  const c = calc(day);
+  let h = `<div class="hd"><b>${T("nav_k")} · ${dl(day)}</b><button class="pri-btn" onclick="openLedgerModal()">${T("addEntry")}</button></div><div class="two"><div class="card"><small>${T("in")}</small><div class="big ok">${money(c.c)}</div></div><div class="card"><small>${T("out")}</small><div class="big warn">${money(c.g)}</div></div></div><div class="card" style="margin-top:10px"><b>${T("records")}</b>`;
+  const E = S.l.filter(e => e.d === day);
+  if (!E.length) h += `<div class="empty">-</div>`;
+  E.forEach(e => { h += `<div class="li"><div><b>${esc(e.n)}</b><br><small>${e.k}</small></div><div><b>${e.k === "gider" || e.k === "avans" ? "−" : "+"}${money(e.p)}</b><button class="sec-btn" style="margin-left:8px" onclick="delLedger('${e.id}')">🗑️</button></div></div>`; });
+  return h + `</div>`;
+}
+function delLedger(id) { S.l = S.l.filter(x => x.id !== id); save(); render(); }
+
+function vV() {
+  const d = debts(), k = Object.keys(d).sort((a, b) => d[b] - d[a]); let tot = 0; k.forEach(x => tot += d[x]);
+  let h = `<div class="card" style="margin-top:12px"><small>${T("totalDebt")}</small><div class="big warn">${money(tot)}</div></div><div class="card" style="margin-top:10px">`;
+  if (!k.length) h += `<div class="empty">${T("noDebt")}</div>`;
+  k.forEach(name => { h += `<div class="li"><b>${esc(name)}</b><div><b>${money(d[name])}</b><button class="pri-btn" style="padding:6px 10px;margin-left:8px" onclick="collectDebt('${esc(name)}',${d[name]})">${T("collect")}</button></div></div>`; });
+  return h + `</div>`;
+}
+function collectDebt(name, amount) { S.l.push({ id: uid(), d: today, k: "tahsilat", n: name, p: amount }); save(); render(); }
+
+function vC() {
+  let ciro = 0, av = 0;
+  S.a.forEach(a => { if (a.st === "done" && a.who === S.set.ci && a.d.slice(0, 7) === cmo) ciro += +a.p; });
+  S.l.forEach(e => { if (e.k === "avans" && e.d.slice(0, 7) === cmo) av += +e.p; });
+  const hakedis = Math.round(ciro * (S.set.pct || 40) / 100);
+  return `<div class="hd"><b>✂️ ${esc(S.set.ci)} (%${S.set.pct})</b><button class="pri-btn" onclick="addStaffAdvance()">${T("addAdvance")}</button></div><div class="two"><div class="card"><small>${T("turnover")}</small><div class="big">${money(ciro)}</div></div><div class="card"><small>${T("earned")}</small><div class="big ok">${money(hakedis)}</div></div></div><div class="two"><div class="card"><small>${T("advance")}</small><div class="big warn">${money(av)}</div></div><div class="card"><small>${T("remaining")}</small><div class="big">${money(hakedis - av)}</div></div></div>`;
+}
+function addStaffAdvance() { const amt = prompt(T("advance") + ":"); if (amt && !isNaN(amt)) { S.l.push({ id: uid(), d: today, k: "avans", n: S.set.ci, p: +amt }); save(); render(); } }
+
+function sendWhatsApp(id) {
+  const a = S.a.find(x => x.id === id); if (!a) return;
+  const shop = S.set.shop || T("defaultTitle");
+  const dateFormatted = pd(a.d).toLocaleDateString(a.lg === "de" ? "de-DE" : a.lg === "en" ? "en-US" : "tr-TR", { day: "numeric", month: "long" });
+  const msgs = {
+    tr: `Merhaba ${a.n}, ${dateFormatted} saat ${a.t}'deki ${shop} (${a.sv}) randevunuzu hatırlatmak isteriz. Görüşmek üzere! ✂️`,
+    de: `Hallo ${a.n}, wir möchten Sie freundlich an Ihren Termin bei ${shop} (${a.sv}) am ${dateFormatted} um ${a.t} Uhr erinnern. Bis bald! ✂️`,
+    en: `Hello ${a.n}, this is a friendly reminder for your appointment at ${shop} (${a.sv}) on ${dateFormatted} at ${a.t}. See you soon! ✂️`
+  };
+  const text = encodeURIComponent(msgs[a.lg || S.lang]);
+  if (a.ar && !a.sent) { a.sent = true; save(); setTimeout(render, 0); }
+  const cleanPhone = (a.ph || "").replace(/[^0-9+]/g, "");
+  window.open(cleanPhone ? `https://wa.me/${cleanPhone.replace(/^\+/, "")}?text=${text}` : `https://wa.me/?text=${text}`, "_blank");
+}
+
+function addCalAlarm(id) {
+  const a = S.a.find(x => x.id === id); if (!a) return;
+  if ("Notification" in window && Notification.permission === "default") Notification.requestPermission();
+  const dtStart = a.d.replace(/-/g, "") + "T" + a.t.replace(":", "") + "00";
+  const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "BEGIN:VEVENT", `UID:${a.id}@terminbuch`, `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").slice(0, 15)}Z`, `DTSTART:${dtStart}`, `SUMMARY:✂️ ${a.n} - ${a.sv}`, `DESCRIPTION:${S.set.shop || T("defaultTitle")} (${money(a.p)})`, "BEGIN:VALARM", `TRIGGER:-PT${a.ar ? (+a.rm || 60) : 15}M`, "ACTION:DISPLAY", `DESCRIPTION:${a.ar ? "💬 WhatsApp: " + a.n : "Reminder"}`, "END:VALARM", "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+  const blob = new Blob([ics], { type: "text/calendar;charset=utf-8" });
+  const link = document.createElement("a"); link.href = URL.createObjectURL(blob); link.download = `termin-${a.n}.ics`; link.click();
+}
+
+function openAppModal(prefill = {}) {
+  const svList = I18N[S.lang].services;
+  const defSv = prefill.sv || svList[0][0], defPrice = prefill.p !== undefined ? prefill.p : svList[0][1], defLang = prefill.lg || S.lang;
+  let svChips = svList.map(s => `<button type="button" class="chip" onclick="selectSv('${s[0]}',${s[1]})">${s[0]} (${s[1]})</button>`).join("");
+  document.getElementById("modalContent").innerHTML = `
+    <h3 style="margin:0 0 14px">${T("addApp")}</h3>
+    <div class="field"><label>${T("custName")}</label><input id="f_n" class="inp" value="${esc(prefill.n || '')}" placeholder="Ahmet / Hans" oninput="checkKnownCustomer(this.value)"></div>
+    <div class="two" style="margin:0 0 12px">
+      <div class="field" style="margin:0"><label>${T("phone")}</label><input id="f_ph" class="inp" type="tel" value="${esc(prefill.ph || '')}" placeholder="+49..."></div>
+      <div class="field" style="margin:0"><label>${T("custLang")}</label><select id="f_lg" class="inp"><option value="tr" ${defLang==='tr'?'selected':''}>🇹🇷 Türkçe</option><option value="de" ${defLang==='de'?'selected':''}>🇩🇪 Deutsch</option><option value="en" ${defLang==='en'?'selected':''}>🇬🇧 English</option></select></div>
+    </div>
+    <div class="two" style="margin:0 0 12px">
+      <div class="field" style="margin:0"><label>${T("date")}</label><input id="f_d" type="date" class="inp" value="${prefill.d || day}"></div>
+      <div class="field" style="margin:0"><label>${T("time")}</label><input id="f_t" type="time" class="inp" value="${prefill.t || '14:00'}"></div>
+    </div>
+    <div class="field"><label>${T("service")}</label><input id="f_sv" class="inp" value="${esc(defSv)}"><div class="chips">${svChips}</div></div>
+    <div class="two" style="margin:0 0 12px">
+      <div class="field" style="margin:0"><label>${T("price")}</label><input id="f_p" type="number" class="inp" value="${defPrice}"></div>
+      <div class="field" style="margin:0"><label>${T("staff")}</label><select id="f_who" class="inp"><option value="Usta">Usta</option><option value="${esc(S.set.ci)}">${esc(S.set.ci)}</option></select></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:0 0 14px"><label style="display:flex;align-items:center;gap:8px;margin:0;font-size:14px"><input type="checkbox" id="f_ar" ${prefill.ar ? "checked" : ""} style="width:20px;height:20px"> 🔔 ${T("autoRem")}</label><select id="f_rm" class="inp" style="width:auto"><option value="30" ${(prefill.rm || 60) == 30 ? "selected" : ""}>${T("rm30")}</option><option value="60" ${(prefill.rm || 60) == 60 ? "selected" : ""}>${T("rm60")}</option></select></div>
+    <div class="btn-row"><button class="sec-btn" onclick="closeModal()">${T("cancel")}</button><button class="pri-btn" onclick="saveApp()">${T("save")}</button></div>`;
+  document.getElementById("modalBg").classList.add("open");
+  if (prefill.n) checkKnownCustomer(prefill.n);
+}
+
+function checkKnownCustomer(nameVal) {
+  const clean = nameVal.trim().toLocaleLowerCase("tr-TR");
+  if (!clean) return;
+  const found = S.a.slice().reverse().find(x => x.n.toLocaleLowerCase("tr-TR") === clean && x.ph);
+  if (found) {
+    const phInput = document.getElementById("f_ph"), lgSelect = document.getElementById("f_lg");
+    if (phInput && !phInput.value) phInput.value = found.ph;
+    if (lgSelect && found.lg) lgSelect.value = found.lg;
+  }
+}
+function selectSv(name, pr) { document.getElementById("f_sv").value = name; document.getElementById("f_p").value = pr; }
+
+function saveApp() {
+  const rawN = document.getElementById("f_n").value.trim(); if (!rawN) return alert(T("custName") + "!");
+  const ar = document.getElementById("f_ar").checked, newId = uid();
+  if (ar && !document.getElementById("f_ph").value.trim()) return alert(T("needPhone"));
+  S.a.push({
+    id: newId, n: cap(rawN),
+    ph: document.getElementById("f_ph").value.trim(), lg: document.getElementById("f_lg").value,
+    d: document.getElementById("f_d").value || day, t: document.getElementById("f_t").value || "12:00",
+    sv: document.getElementById("f_sv").value, p: +document.getElementById("f_p").value || 0,
+    who: document.getElementById("f_who").value, st: "wait", pay: "nakit",
+    ar, rm: +document.getElementById("f_rm").value || 60, sent: false
+  });
+  day = document.getElementById("f_d").value || day; save(); closeModal(); render();
+  if (ar && confirm(T("calAsk"))) addCalAlarm(newId);
+}
+
+function openActionModal(id) {
+  const a = S.a.find(x => x.id === id); if (!a) return;
+  document.getElementById("modalContent").innerHTML = `
+    <h3 style="margin:0 0 6px">${esc(a.n)} (${a.t})</h3><p style="color:var(--muted);margin:0 0 16px">${esc(a.sv)} · ${money(a.p)}</p>
+    <div style="display:grid;gap:8px">
+      <button class="pri-btn" style="background:var(--ok)" onclick="finishApp('${a.id}','nakit')">💵 ${T("complete")} - ${T("cash")}</button>
+      <button class="pri-btn" onclick="finishApp('${a.id}','kart')">💳 ${T("complete")} - ${T("card")}</button>
+      <button class="pri-btn" style="background:var(--warn)" onclick="finishApp('${a.id}','veresiye')">📓 ${T("credit")}</button>
+      <button class="sec-btn" onclick="sendWhatsApp('${a.id}')">💬 WhatsApp</button>
+      <button class="sec-btn" style="color:var(--danger)" onclick="delApp('${a.id}')">🗑️ ${T("delete")}</button>
+    </div>`;
+  document.getElementById("modalBg").classList.add("open");
+}
+function finishApp(id, pay) { const a = S.a.find(x => x.id === id); if (a) { a.st = "done"; a.pay = pay; save(); closeModal(); render(); } }
+function delApp(id) { S.a = S.a.filter(x => x.id !== id); save(); closeModal(); render(); }
+
+function openLedgerModal() {
+  document.getElementById("modalContent").innerHTML = `
+    <h3 style="margin:0 0 14px">${T("addEntry")}</h3>
+    <div class="field"><label>Tür</label><select id="l_k" class="inp"><option value="gider">${T("out")}</option><option value="gelir">${T("in")}</option></select></div>
+    <div class="field"><label>Açıklama</label><input id="l_n" class="inp" placeholder="Elektrik / Kira"></div>
+    <div class="field"><label>${T("price")}</label><input id="l_p" type="number" class="inp"></div>
+    <div class="btn-row"><button class="sec-btn" onclick="closeModal()">${T("cancel")}</button><button class="pri-btn" onclick="saveLedger()">${T("save")}</button></div>`;
+  document.getElementById("modalBg").classList.add("open");
+}
+function saveLedger() {
+  const n = document.getElementById("l_n").value.trim(), p = +document.getElementById("l_p").value;
+  if (!n || !p) return; S.l.push({ id: uid(), d: day, k: document.getElementById("l_k").value, n, p }); save(); closeModal(); render();
+}
+
+function openVoiceModal() {
+  document.getElementById("modalContent").innerHTML = `
+    <h3 style="margin:0 0 8px">${T("voiceTitle")}</h3>
+    <p style="font-size:12px;color:var(--muted);line-height:1.4;margin:0 0 12px">${T("voiceHint")}</p>
+    <button class="sec-btn" style="width:100%;margin-bottom:10px;padding:12px;border:1px solid var(--pri)" onclick="startWebSpeech()" id="liveMicBtn">${T("startMic")}</button>
+    <textarea id="voiceText" class="inp" rows="3" placeholder="Yarın saat 14:30 Mehmet saç kesimi 40 euro..."></textarea>
+    <div class="btn-row"><button class="sec-btn" onclick="closeModal()">${T("cancel")}</button><button class="pri-btn" onclick="parseVoiceCommand()">${T("applyVoice")}</button></div>`;
+  document.getElementById("modalBg").classList.add("open");
+  setTimeout(() => document.getElementById("voiceText").focus(), 150);
+}
+
+function startWebSpeech() {
+  const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SR) { alert("Klavyedeki 🎙️ mikrofonu kullanın."); document.getElementById("voiceText").focus(); return; }
+  try {
+    const rec = new SR(); rec.lang = localeStr(); rec.interimResults = false;
+    document.getElementById("liveMicBtn").textContent = "🎧 Dinleniyor...";
+    rec.onresult = e => { document.getElementById("voiceText").value = e.results[0][0].transcript; parseVoiceCommand(); };
+    rec.onerror = () => { document.getElementById("liveMicBtn").textContent = "⌨️ Klavyedeki 🎙️ Mikrofonu Kullanın"; document.getElementById("voiceText").focus(); };
+    rec.start();
+  } catch (e) { document.getElementById("voiceText").focus(); }
+}
+
+// SESLİ KOMUT ÇÖZÜMLEYİCİ: telefon, tarih, saat, ücret, hizmet ve ismi ayrı ayrı ayıklar
+const VOICE_MONTHS = { ocak: "01", şubat: "02", mart: "03", nisan: "04", mayıs: "05", haziran: "06", temmuz: "07", ağustos: "08", eylül: "09", ekim: "10", kasım: "11", aralık: "12",
+  january: "01", february: "02", march: "03", april: "04", may: "05", june: "06", july: "07", august: "08", september: "09", october: "10", november: "11", december: "12",
+  januar: "01", februar: "02", märz: "03", mai: "05", juni: "06", juli: "07", oktober: "10", dezember: "12" };
+const VOICE_DATE_RE = new RegExp("(\\d{1,2})\\s*(" + Object.keys(VOICE_MONTHS).sort((x, y) => y.length - x.length).join("|") + ")", "i");
+const VOICE_STOP = new Set(("sabah öğle ogle öğlen oglen akşam aksam gece gündüz gunduz randevu randevusu randevum randevuyu için icin adına adina adlı adli isimli oluştur olustur oluşturur oluşturacaksın oluştursun musun misin yap yapar yapalım yaz yazar ekle ekler kaydet kaydeder ver al bir bana lütfen lutfen yani şey sey ve ile de da ki " +
+  "saat saati saatinde buçuk bucuk yarım çeyrek geçe kala telefon telefonu numarası numarasi numara numaralı numarali nosu no tel cep müşteri musteri bey hanım hanim abi abla " +
+  "saç sac sakal kesim kesimi kesme tıraş tiras tıraşı tirasi yıkama yikama cilt bakım bakımı bakim bakimi çocuk cocuk fön fon boya " +
+  "toplam toplamda ücret ucret fiyat tutar tutarı ödeyecek odeyecek olacak ödeme euro lira tl dolar para " +
+  "bugün bugun yarın yarin öbür obur gün gun gelecek gelir geliyor hatırlat hatirlat hatırlatma hatırlatın artı arti plus " +
+  "termin für fur um uhr heute morgen vormittag nachmittag abend haarschnitt haare bart und kinder erinnern erinnerung nummer telefonnummer " +
+  "appointment book booking for at today tomorrow morning afternoon evening haircut hair beard and please remind reminder phone number kids cut").split(" "));
+
+function normalizePhone(raw) {
+  let plus = /^\s*(\+|00)/.test(raw), d = raw.replace(/\D/g, "");
+  if (/^00/.test(d)) { d = d.slice(2); plus = true; }
+  if (plus) return "+" + d;
+  if (/^(49|90)\d{9,11}$/.test(d)) return "+" + d;
+  if (/^05\d{9}$/.test(d)) return "+90" + d.slice(1);
+  if (/^5\d{9}$/.test(d)) return "+90" + d;
+  if (/^01[5-7]\d{7,9}$/.test(d)) return "+49" + d.slice(1);
+  return d;
+}
+
+function parseVoiceCommand() {
+  let raw = (document.getElementById("voiceText").value || "").trim();
+  if (!raw) return;
+
+  // 0. TELEFON: ilk önce çıkarılır, sayılar karışmasın
+  let phone = "";
+  const phM = raw.match(/(?:\+|00|0)\d(?:[\s\-().]?\d){8,}/) || raw.match(/\d(?:[\s\-().]?\d){9,}/);
+  if (phM) { phone = normalizePhone(phM[0]); raw = raw.replace(phM[0], " "); }
+  const low = raw.toLocaleLowerCase("tr-TR");
+
+  // Gider kontrolü
+  if (/(fatura|kira|elektrik|su|gider|malzeme|miete|strom)/.test(low) && !/(randevu|termin|oluştur|yaz|ekle|saç|sakal|kesim)/.test(low)) {
+    const numMatch = low.match(/(\d+)/); const amt = numMatch ? +numMatch[1] : 0;
+    const cleanDesc = raw.replace(/\d+/g, "").replace(/(tl|lira|euro|€|\$)/gi, "").trim();
+    if (amt > 0) { S.l.push({ id: uid(), d: today, k: "gider", n: cap(cleanDesc || "Gider"), p: amt }); save(); closeModal(); go("k"); return; }
+  }
+
+  // 1. TARİH
+  let targetDate = day;
+  if (/(yarın|yarin|morgen|tomorrow)/.test(low)) targetDate = shift(today, 1);
+  else if (/(bugün|bugun|heute|today)/.test(low)) targetDate = today;
+  const dm = low.match(VOICE_DATE_RE);
+  if (dm) {
+    let yr = new Date().getFullYear();
+    targetDate = `${yr}-${VOICE_MONTHS[dm[2].toLocaleLowerCase("tr-TR")]}-${String(dm[1]).padStart(2, "0")}`;
+    if (targetDate < today) targetDate = `${yr + 1}-${targetDate.slice(5)}`;
+  }
+
+  // 2. SAAT
+  let targetTime = "14:00";
+  const tMatch = low.match(/(\d{1,2})\s*[:.]\s*(\d{2})/) || low.match(/\b(?:saat|um|at)\s*(\d{1,2})\b/);
+  if (tMatch) targetTime = `${String(tMatch[1]).padStart(2, "0")}:${tMatch[2] ? String(tMatch[2]).padStart(2, "0") : "00"}`;
+
+  // 3. ÜCRET
+  const pMatch = low.match(/(\d+)\s*(?:euro|€|lira|tl|\$)/i) || low.match(/(?:tutar|fiyat|ücret|toplamda)\s*(\d+)/i);
+
+  // 4. HİZMET
+  const svList = I18N[S.lang].services;
+  let chosenSv = svList[0][0], chosenP = svList[0][1];
+  if (/(saç.*sakal|sakal.*saç|haare.*bart|hair.*beard)/.test(low)) { chosenSv = svList[2][0]; chosenP = svList[2][1]; }
+  else if (/(sakal|bart|beard)/.test(low)) { chosenSv = svList[1][0]; chosenP = svList[1][1]; }
+  else if (/(çocuk|kinder|kids)/.test(low)) { chosenSv = svList[3][0]; chosenP = svList[3][1]; }
+  if (pMatch) chosenP = +pMatch[1];
+
+  // 5. İSİM: Cümlede birden fazla "için/adına" varsa (Örn: "Saat 12:00 için ... Mehmet adına") hepsini tarar ve gerçek ismi bulur
+  const words = low
+    .replace(VOICE_DATE_RE, " ")
+    .replace(/\d{1,2}\s*[:.]\s*\d{2}/g, " ")
+    .replace(/\d+\s*(?:euro|€|lira|tl|\$)/g, " ")
+    .replace(/['’‘`´]\p{L}*/gu, " ")
+    .replace(/[^\p{L}\s]/gu, " ")
+    .split(/\s+/).filter(t => t.length > 1);
+  let name = "";
+  for (let idx = 0; idx < words.length; idx++) {
+    if (/^(için|icin|adına|adina|adlı|adli|isimli|für|for)$/.test(words[idx]) && idx > 0) {
+      const arr = [];
+      for (let i = idx - 1; i >= 0 && arr.length < 3; i--) {
+        if (VOICE_STOP.has(words[i])) break;
+        arr.unshift(words[i]);
+      }
+      if (arr.length) { name = arr.join(" "); break; }
+    }
+  }
+  if (!name) name = words.filter(t => !VOICE_STOP.has(t)).slice(0, 2).join(" ");
+  name = cap(name);
+  if (name.length < 2) name = "Müşteri";
+
+  const deNames = /(hans|peter|michael|thomas|andreas|stefan|markus|christian|martin|alexander|lukas|paul|felix|leon|müller|schmidt|meier)/i;
+  const detectedLang = deNames.test(name) ? "de" : S.lang;
+  const wantsRem = /(hatırlat|hatirlat|erinner|remind)/.test(low);
+
+  closeModal();
+  openAppModal({ n: name, ph: phone, d: targetDate, t: targetTime, sv: chosenSv, p: chosenP, lg: detectedLang, ar: wantsRem });
+}
+
+function openSettings() {
+  document.getElementById("modalContent").innerHTML = `
+    <h3 style="margin:0 0 14px">⚙️ ${T("settings")}</h3>
+    <div class="field"><label>${T("shopName")}</label><input id="s_shop" class="inp" value="${esc(S.set.shop)}" placeholder="${T("defaultTitle")}"></div>
+    <div class="two" style="margin:0 0 12px">
+      <div class="field" style="margin:0"><label>${T("currency")}</label><select id="s_cur" class="inp"><option value="€" ${S.set.cur==='€'?'selected':''}>€</option><option value="₺" ${S.set.cur==='₺'?'selected':''}>₺</option></select></div>
+      <div class="field" style="margin:0"><label>${T("staffShare")}</label><input id="s_pct" type="number" class="inp" value="${S.set.pct}"></div>
+    </div>
+    <div class="field"><label>${T("staffName")}</label><input id="s_ci" class="inp" value="${esc(S.set.ci)}"></div>
+    <div style="display:grid;gap:8px;margin-top:14px">
+      <button class="pri-btn" onclick="saveSettings()">${T("save")}</button>
+      <button class="sec-btn" onclick="downloadBackup()">${T("backup")}</button>
+      <button class="sec-btn" onclick="restoreBackup()">${T("restore")}</button>
+      <button class="sec-btn" style="color:var(--danger)" onclick="resetDatabase()">${T("resetAll")}</button>
+    </div>`;
+  document.getElementById("modalBg").classList.add("open");
+}
+
+function saveSettings() {
+  S.set.shop = document.getElementById("s_shop").value.trim();
+  S.set.cur = document.getElementById("s_cur").value;
+  S.set.pct = +document.getElementById("s_pct").value || 40;
+  S.set.ci = document.getElementById("s_ci").value.trim() || "Personel";
+  save(); closeModal(); render();
+}
+
+async function downloadBackup() {
+  const name = `terminbuch-backup-${ymd(new Date())}.json`, json = JSON.stringify(S, null, 2);
+  try {
+    const f = new File([json], name, { type: "application/json" });
+    if (navigator.canShare && navigator.canShare({ files: [f] })) { await navigator.share({ files: [f], title: name }); return; }
+  } catch (e) { if (e && e.name === "AbortError") return; }
+  const blob = new Blob([json], { type: "application/json" });
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; a.click();
+}
+
+function restoreBackup() {
+  const inp = document.createElement("input"); inp.type = "file"; inp.accept = ".json,application/json,text/plain";
+  inp.onchange = () => {
+    const f = inp.files[0]; if (!f) return;
+    const r = new FileReader();
+    r.onload = () => {
+      let d;
+      try { d = JSON.parse(r.result); if (!d || !Array.isArray(d.a) || !Array.isArray(d.l)) throw 0; } catch (e) { alert(T("restoreBad")); return; }
+      if (!confirm(T("restoreAsk"))) return;
+      S = Object.assign({ lang: S.lang, a: [], l: [] }, d);
+      S.set = Object.assign({ shop: "", cur: "€", ci: "Personel", pct: 40 }, d.set || {});
+      save(); closeModal(); render(); alert(T("restoreOk"));
+    };
+    r.readAsText(f);
+  };
+  inp.click();
+}
+
+function resetDatabase() {
+  if (confirm("Tüm randevular silinsin mi?")) { localStorage.removeItem(KEY); S.a = []; S.l = []; save(); closeModal(); render(); }
+}
+
+function closeModal() { document.getElementById("modalBg").classList.remove("open"); }
+let remSig = "";
+function tick() {
+  const nd = ymd(new Date()); if (nd !== today) today = nd;
+  const sig = dueReminders().map(a => a.id).join(",");
+  if (view === "r" || sig !== remSig) { remSig = sig; render(); }
+}
+setInterval(tick, 30000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden) tick(); });
+render();
+if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+</script>
+</body>
+</html>
